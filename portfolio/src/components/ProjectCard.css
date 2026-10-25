@@ -65,6 +65,9 @@
   font-size: var(--fs-small);
   margin-top: 4px;
 }
+.pcard__tags .chip {
+  white-space: normal;
+}
 .pcard__tags {
   display: flex;
   flex-wrap: wrap;

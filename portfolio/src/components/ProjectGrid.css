@@ -29,7 +29,8 @@
   position: relative;
   z-index: 1;
 }
-.toggle__pill {
+.toggle__btn .toggle__pill {
+  z-index: 0;
   position: absolute;
   inset: 0;
   border-radius: inherit;
@@ -42,6 +43,9 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: clamp(20px, 3vw, 48px);
   row-gap: clamp(64px, 9vw, 140px);
+}
+.work__grid > * {
+  min-width: 0;
 }
 .work__cell--0 {
   grid-column: 1 / span 7;
@@ -151,7 +155,7 @@
 
 @media (max-width: 900px) {
   .work__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .work__cell--0,
   .work__cell--1,
