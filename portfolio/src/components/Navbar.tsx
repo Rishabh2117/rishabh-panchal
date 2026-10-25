@@ -6,7 +6,7 @@ import { useSectionNav } from '../hooks/useSectionNav';
 import { Magnetic } from './motion/Magnetic';
 import './Navbar.css';
 
-export const navItems = [
+const navItems = [
   { id: 'work', label: 'Work' },
   { id: 'about', label: 'About' },
   { id: 'capabilities', label: 'Capabilities' },
