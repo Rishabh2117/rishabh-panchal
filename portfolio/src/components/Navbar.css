@@ -45,6 +45,7 @@
 }
 .nav__name {
   font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .nav__links {
@@ -194,7 +195,7 @@
 
 @media (max-width: 860px) {
   .nav__links,
-  .nav__end > span {
+  .nav__resume-wrap {
     display: none;
   }
   .nav__toggle {

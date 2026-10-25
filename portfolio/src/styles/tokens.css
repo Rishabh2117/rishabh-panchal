@@ -16,8 +16,8 @@
   --font-body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
 
-  --fs-mega: clamp(3.1rem, 11.5vw, 11rem);
-  --fs-h1: clamp(2.6rem, 8vw, 7rem);
+  --fs-mega: clamp(2.75rem, 11.5vw, 11rem);
+  --fs-h1: clamp(2.3rem, 8vw, 7rem);
   --fs-h2: clamp(2.1rem, 5.6vw, 4.8rem);
   --fs-h3: clamp(1.35rem, 2.2vw, 1.9rem);
   --fs-lead: clamp(1.1rem, 1.6vw, 1.35rem);

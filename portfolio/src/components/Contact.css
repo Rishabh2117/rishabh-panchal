@@ -29,7 +29,10 @@
 }
 .contact__links {
   display: grid;
-  min-width: min(320px, 100%);
+  width: min(360px, 100%);
+}
+.contact__row > :last-child {
+  flex: 0 1 360px;
 }
 .contact__link {
   display: flex;

@@ -79,9 +79,11 @@ export function Navbar() {
           </nav>
 
           <div className="nav__end">
-            <Magnetic strength={0.25}>
-              <ResumeLink className="nav__resume" />
-            </Magnetic>
+            <div className="nav__resume-wrap">
+              <Magnetic strength={0.25}>
+                <ResumeLink className="nav__resume" />
+              </Magnetic>
+            </div>
             <button
               className={`nav__toggle${open ? ' is-open' : ''}`}
               aria-expanded={open}
