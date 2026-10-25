@@ -6,7 +6,7 @@ import { SplitReveal } from './motion/SplitReveal';
 import './Contact.css';
 
 export function Contact() {
-  const { email, linkedin, github, phone } = siteConfig.links;
+  const { email, linkedin, github, instagram, phone } = siteConfig.links;
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {
@@ -22,6 +22,7 @@ export function Contact() {
   const links = [
     { label: 'LinkedIn', href: linkedin, external: true },
     { label: 'GitHub', href: github, external: true },
+    { label: 'Instagram', href: instagram, external: true },
     { label: phone || 'Phone', href: phone && `tel:${phone.replace(/\s/g, '')}`, external: false },
   ];
 

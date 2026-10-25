@@ -18,6 +18,7 @@ export const siteConfig = {
   links: {
     github: 'https://github.com/Rishabh2117/',
     linkedin: 'https://www.linkedin.com/in/rishabh-panchal-a66029230/',
+    instagram: 'https://www.instagram.com/the_rishfit/',
     email: 'rishabhpanchalh@gmail.com',
     phone: '+91 98208 84288', // shown as written; the tel: link strips spaces
     resume: 'docs/Rishabh-Panchal-CV.pdf',

@@ -4,7 +4,7 @@ import './Footer.css';
 
 export function Footer() {
   const goTo = useSectionNav();
-  const { github, linkedin, email } = siteConfig.links;
+  const { github, linkedin, instagram, email } = siteConfig.links;
   const year = new Date().getFullYear();
 
   return (
@@ -24,6 +24,11 @@ export function Footer() {
               </a>
             </li>
             <li>{linkedin ? <a href={linkedin} target="_blank" rel="noreferrer">LinkedIn</a> : <span className="is-disabled">LinkedIn</span>}</li>
+            <li>
+              <a href={instagram} target="_blank" rel="noreferrer">
+                Instagram
+              </a>
+            </li>
             <li>{email ? <a href={`mailto:${email}`}>Email</a> : <button onClick={() => goTo('contact')}>Contact</button>}</li>
           </ul>
           <button className="footer__top mono" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
