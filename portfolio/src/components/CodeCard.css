@@ -39,13 +39,13 @@
   min-height: 15.5em;
 }
 .t-k {
-  color: #ff8a65;
+  color: var(--accent-3);
 }
 .t-s {
-  color: var(--accent);
+  color: var(--design);
 }
 .t-p {
-  color: #8ec5ff;
+  color: var(--code);
 }
 .t-c {
   color: var(--text-dim);

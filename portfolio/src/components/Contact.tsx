@@ -6,7 +6,7 @@ import { SplitReveal } from './motion/SplitReveal';
 import './Contact.css';
 
 export function Contact() {
-  const { email, linkedin, github } = siteConfig.links;
+  const { email, linkedin, github, phone } = siteConfig.links;
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {
@@ -20,8 +20,9 @@ export function Contact() {
   };
 
   const links = [
-    { label: 'GitHub', href: github },
-    { label: 'LinkedIn', href: linkedin },
+    { label: 'LinkedIn', href: linkedin, external: true },
+    { label: 'GitHub', href: github, external: true },
+    { label: phone || 'Phone', href: phone && `tel:${phone.replace(/\s/g, '')}`, external: false },
   ];
 
   return (
@@ -61,9 +62,13 @@ export function Contact() {
               {links.map((l) => (
                 <li key={l.label}>
                   {l.href ? (
-                    <a href={l.href} target="_blank" rel="noreferrer" className="contact__link">
+                    <a
+                      href={l.href}
+                      className="contact__link"
+                      {...(l.external ? { target: '_blank', rel: 'noreferrer' } : {})}
+                    >
                       <span>{l.label}</span>
-                      <span aria-hidden="true">↗</span>
+                      <span aria-hidden="true">{l.external ? '↗' : '→'}</span>
                     </a>
                   ) : (
                     <span className="contact__link is-disabled" aria-disabled="true">

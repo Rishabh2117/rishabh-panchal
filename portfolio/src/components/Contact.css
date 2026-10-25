@@ -16,8 +16,22 @@
   flex-wrap: wrap;
 }
 .btn--lg {
-  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-size: clamp(0.95rem, 2vw, 1.4rem);
   padding: 20px 30px;
+  max-width: 100%;
+}
+.contact__email,
+.contact__email > span {
+  max-width: 100%;
+}
+.btn--lg {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 400px) {
+  .btn--lg {
+    padding: 16px 20px;
+    font-size: 0.88rem;
+  }
 }
 .contact__copy {
   color: var(--text-muted);

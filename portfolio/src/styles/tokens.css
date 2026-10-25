@@ -1,14 +1,22 @@
 :root {
   /* Color */
-  --bg: #0d0d0c;
-  --bg-raised: #151514;
-  --bg-card: #1b1b19;
-  --line: #2a2a27;
-  --line-strong: #3c3c38;
-  --text: #f2f0e9;
-  --text-muted: #a3a199;
-  --text-dim: #6e6c66;
-  --accent: #d4ff3a;
+  /* "Night Editor": cool editor blue = code, warm amber = design, soft purple where they meet */
+  --bg: #0e0f14;
+  --bg-raised: #15161d;
+  --bg-card: #1b1c25;
+  --line: #262836;
+  --line-strong: #373a4c;
+  --text: #ecebe7;
+  --text-muted: #9c9eae;
+  --text-dim: #6c6f82;
+  --accent: #7aa2f7; /* code — editor blue; solid uses: text, borders, dots */
+  --accent-2: #e0af68; /* design — warm amber */
+  --accent-3: #bb9af7; /* blend — soft purple */
+  --code: var(--accent);
+  --design: var(--accent-2);
+  --accent-soft: rgba(122, 162, 247, 0.16);
+  --design-soft: rgba(224, 175, 104, 0.16);
+  --accent-gradient: linear-gradient(100deg, var(--accent), var(--accent-3) 33%, var(--accent-2) 66%, var(--accent));
   --accent-ink: #0d0d0c;
 
   /* Type */

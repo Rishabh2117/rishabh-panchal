@@ -38,13 +38,14 @@ export function SplitReveal({ lines, as: Tag = 'h2', id, className, delay = 0, i
         {lines.map((line, li) => {
           const words = line.split(' ');
           return (
-            <span key={li} style={{ display: 'block' }} className={accentLines.includes(li) ? 'accent' : undefined}>
+            <span key={li} style={{ display: 'block' }}>
               {words.map((word, wi) => {
                 const i = wordIndex++;
                 return (
                   <span key={wi} style={mask}>
                     <motion.span
                       style={{ display: 'inline-block' }}
+                      className={accentLines.includes(li) ? 'grad-text' : undefined}
                       variants={{
                         hidden: reduce ? { opacity: 0 } : { y: '110%', rotate: 5 },
                         show: {

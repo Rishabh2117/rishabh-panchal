@@ -1,3 +1,4 @@
+import { Portrait } from './Portrait';
 import { Reveal } from './motion/Reveal';
 import { ScrollText } from './motion/ScrollText';
 import { SplitReveal } from './motion/SplitReveal';
@@ -7,8 +8,8 @@ const aboutCopy =
   "My background in web development has taught me how digital experiences are structured, built, and delivered. I've worked with WordPress and Drupal across client websites, implementing responsive pages, custom functionality, reusable components, content systems, and integrations. I'm now expanding my perspective toward UI/UX and Product Design, with a focus on how thoughtful interfaces and clear interactions can make digital products more useful.";
 
 const journey = [
-  { step: 'Then', title: 'Building for the web', text: 'Client websites in WordPress and Drupal at FlyingCursor, April 2024 – October 2026.' },
-  { step: 'Now', title: 'Learning to design', text: 'Strengthening UI/UX fundamentals: wireframing, prototyping, interaction and information architecture.' },
+  { step: 'Then', title: 'Building for the web', text: 'Client websites in WordPress and Drupal at FlyingCursor, November 2023 – October 2026: intern → IT Executive → Full Stack Developer.' },
+  { step: 'Now', title: 'Freelancing & learning to design', text: 'Freelancing with FlyingCursor on Mann Talks and Ecofy, while strengthening UI/UX fundamentals: wireframing, prototyping and interaction.' },
   { step: 'Next', title: 'Design case studies', text: 'Figma projects and product-design work will be published here as they are completed.' },
 ];
 
@@ -27,7 +28,12 @@ export function About() {
             accentLines={[1]}
           />
         </div>
-        <ScrollText text={aboutCopy} className="about__copy" />
+        <div className="about__intro">
+          <Reveal className="about__portrait">
+            <Portrait />
+          </Reveal>
+          <ScrollText text={aboutCopy} className="about__copy" />
+        </div>
 
         <ol className="journey">
           {journey.map((j, i) => (

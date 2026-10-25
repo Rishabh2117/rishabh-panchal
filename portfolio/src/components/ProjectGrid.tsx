@@ -80,7 +80,7 @@ export function ProjectGrid() {
       <div className="container">
         <header className="section-head">
           <Reveal>
-            <span className="eyebrow mono">Selected client work at FlyingCursor · 2024 – 2026</span>
+            <span className="eyebrow mono">Selected client work at FlyingCursor · 2023 – present</span>
           </Reveal>
           <div className="section-head__row">
             <SplitReveal id="work-title" lines={["Selected", "work"]} className="display" accentLines={[1]} />

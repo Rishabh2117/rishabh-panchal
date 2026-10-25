@@ -29,7 +29,6 @@ export function ProjectDetail() {
 
   const index = projects.indexOf(project);
   const next = projects[(index + 1) % projects.length];
-  const cs = project.caseStudy ?? {};
 
   return (
     <article className="pd" style={{ '--pd-accent': project.accent } as React.CSSProperties}>
@@ -49,6 +48,16 @@ export function ProjectDetail() {
           >
             {project.employer ? `Client work at ${project.employer}` : 'Personal project'} · {project.sector}
           </motion.p>
+          {project.engagement && (
+            <motion.span
+              className="badge-live mono"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.45 }}
+            >
+              <i aria-hidden="true" /> {project.engagement} · ongoing
+            </motion.span>
+          )}
 
           <SplitReveal as="h1" immediate delay={0.25} className="pd__title display" lines={[project.title]} />
 
@@ -147,32 +156,6 @@ export function ProjectDetail() {
             ) : (
               <Pending />
             )}
-          </Reveal>
-
-          <Reveal className="pd__block">
-            <h2 className="mono">Context</h2>
-            {cs.context ? <p>{cs.context}</p> : <Pending>Problem and context to be added</Pending>}
-          </Reveal>
-
-          <Reveal className="pd__block">
-            <h2 className="mono">Implementation decisions</h2>
-            {cs.decisions?.length ? (
-              <ul className="pd__list">
-                {cs.decisions.map((d, i) => (
-                  <li key={d}>
-                    <span className="mono">{String(i + 1).padStart(2, '0')}</span>
-                    {d}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <Pending>Implementation notes to be added</Pending>
-            )}
-          </Reveal>
-
-          <Reveal className="pd__block">
-            <h2 className="mono">Outcome</h2>
-            {cs.outcome ? <p>{cs.outcome}</p> : <Pending>Outcome to be added</Pending>}
           </Reveal>
         </div>
       </div>

@@ -142,7 +142,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--accent);
+  background: var(--accent-gradient);
   transform: translateY(101%);
   transition: transform 0.7s var(--ease-out);
   z-index: -1;

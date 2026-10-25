@@ -53,6 +53,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             <p className="pcard__meta">
               {project.sector} · {project.platform}
             </p>
+            {project.engagement && <span className="badge-live pcard__badge">{project.engagement}</span>}
           </div>
         </div>
         <ul className="pcard__tags" aria-label="Contribution areas">

@@ -8,7 +8,7 @@ type Token = [text: string, kind?: 'k' | 's' | 'p' | 'c'];
 const code: Token[] = [
   ['// about.js', 'c'], ['\n'],
   ['const', 'k'], [' rishabh = {\n'],
-  ['  role', 'p'], [': '], ["'Full Stack Web Developer'", 's'], [',\n'],
+  ['  role', 'p'], [': '], ["'Full Stack Developer'", 's'], [',\n'],
   ['  builds', 'p'], [': ['], ["'WordPress'", 's'], [', '], ["'Drupal'", 's'], [', '], ["'PHP'", 's'], ['],\n'],
   ['  cares', 'p'], [': ['], ["'responsive'", 's'], [', '], ["'reusable'", 's'], ['],\n'],
   ['  exploring', 'p'], [': ['], ["'UI/UX'", 's'], [', '], ["'Product Design'", 's'], ['],\n'],

@@ -4,18 +4,14 @@
 
 export type ProjectCategory = 'client' | 'personal' | 'design';
 
-export interface CaseStudy {
-  context?: string;
-  decisions?: string[];
-  outcome?: string;
-}
-
 export interface Project {
   slug: string;
   title: string;
   category: ProjectCategory;
   /** e.g. "Client work at FlyingCursor" */
   employer?: string;
+  /** Extra working relationship, shown as a badge (e.g. ongoing freelance) */
+  engagement?: string;
   sector: string;
   platform: string;
   summary: string;
@@ -29,7 +25,6 @@ export interface Project {
   images?: { desktop?: string; mobile?: string };
   /** Brand-ish tint used for hover glows and placeholders */
   accent: string;
-  caseStudy?: CaseStudy;
 }
 
 const img = (slug: string) => ({
@@ -43,6 +38,7 @@ export const projects: Project[] = [
     title: 'Mann Talks',
     category: 'client',
     employer: 'FlyingCursor',
+    engagement: 'Freelance via FlyingCursor',
     sector: 'Mental health',
     platform: 'WordPress',
     summary:
@@ -64,6 +60,7 @@ export const projects: Project[] = [
     title: 'Ecofy',
     category: 'client',
     employer: 'FlyingCursor',
+    engagement: 'Freelance via FlyingCursor',
     sector: 'Green finance',
     platform: 'Drupal',
     summary:
@@ -142,8 +139,8 @@ export const projects: Project[] = [
     contribution: ['Styling updates', 'Typography refinement against an existing visual reference'],
     tech: ['HTML', 'CSS'],
     url: 'https://visual-sadhan.juicyburger.in/',
-    urlNote: 'Preview environment',
-    // Screenshot pending: the site is behind a human-verification check.
+    // Behind a Cloudflare check — recapture with: node scripts/capture-manual.mjs visual-sadhan <url>
+    images: { desktop: 'projects/visual-sadhan/desktop.jpg' },
     accent: '#b03fd0',
   },
   {
@@ -160,6 +157,20 @@ export const projects: Project[] = [
     extraUrls: [{ label: 'FlyingCursor preview', url: 'https://works.flyingcursor.com/pudding/' }],
     images: img('pudding'),
     accent: '#ffd23f',
+  },
+  {
+    slug: 'asci',
+    title: 'ASCI',
+    category: 'client',
+    employer: 'FlyingCursor',
+    sector: 'Advertising standards',
+    platform: 'WordPress',
+    summary: 'Website for the Advertising Standards Council of India, the self-regulatory body for advertising in India.',
+    contribution: [],
+    tech: ['WordPress'],
+    url: 'https://www.ascionline.in/',
+    images: img('asci'),
+    accent: '#3b82f6',
   },
 ];
 

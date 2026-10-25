@@ -33,17 +33,7 @@ All content lives in `src/data/`. You should not need to touch components to upd
 2. Append an entry to `projects` in `src/data/projects.ts`. Its page appears automatically at `#/work/<slug>`.
 3. Leave unknown fields out. The page shows tidy "to be added" placeholders instead.
 
-### Add a case study
-
-Fill in the `caseStudy` field of a project:
-
-```ts
-caseStudy: {
-  context: 'What the problem was…',
-  decisions: ['Why I chose X', 'How I handled Y'],
-  outcome: 'What changed (no invented metrics).',
-},
-```
+Set `engagement: 'Freelance via FlyingCursor'` (or similar) to show an "ongoing" badge on the card and project page.
 
 ### Add a Figma / design project
 

@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 
 // Keep in sync with src/data/projects.ts.
-// Visual Sadhan is behind a Cloudflare human check, so its screenshot must be added manually.
+// Visual Sadhan is behind a Cloudflare human check: use scripts/capture-manual.mjs for it instead.
 const targets = {
   'mann-talks': 'https://www.manntalks.org/',
   ecofy: 'https://uat.ecofy.co.in/',
@@ -17,6 +17,7 @@ const targets = {
   khpt: 'https://www.khpt.org/',
   'mahindra-farm-equipment': 'https://www.mahindrafarmequipment.com/',
   pudding: 'https://housesofbandra.com/',
+  asci: 'https://www.ascionline.in/',
 };
 
 const variants = [

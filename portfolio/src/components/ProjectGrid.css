@@ -34,7 +34,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: var(--accent);
+  background: var(--accent-gradient);
 }
 
 /* Art-directed asymmetric grid */
@@ -80,7 +80,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--accent);
+  background: var(--accent-gradient);
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 0.5s var(--ease-out);

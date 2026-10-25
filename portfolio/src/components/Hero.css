@@ -7,21 +7,34 @@
   overflow: hidden;
   isolation: isolate;
 }
-.hero__spotlight {
+.hero__bg {
   position: absolute;
   inset: 0;
   z-index: -1;
 }
-.hero__grid {
+.hero__field {
   position: absolute;
   inset: 0;
-  z-index: -2;
-  background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 96px 96px;
-  opacity: 0.35;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, #000 20%, transparent 75%);
+  width: 100%;
+  height: 100%;
+  mask-image: radial-gradient(ellipse 90% 80% at 60% 40%, #000 30%, transparent 85%);
+}
+/* Slow-drifting colour wash behind the dots */
+.hero__aurora {
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  background:
+    radial-gradient(35% 40% at 25% 30%, rgba(122, 162, 247, 0.1), transparent 70%),
+    radial-gradient(30% 35% at 75% 25%, rgba(224, 175, 104, 0.07), transparent 70%),
+    radial-gradient(30% 35% at 60% 80%, rgba(187, 154, 247, 0.07), transparent 70%);
+  filter: blur(40px);
+  animation: aurora 18s ease-in-out infinite alternate;
+}
+@keyframes aurora {
+  to {
+    transform: translate3d(4%, -3%, 0) rotate(8deg) scale(1.08);
+  }
 }
 
 .hero__inner {
@@ -39,7 +52,7 @@
   color: var(--text-muted);
 }
 .hero__direction b {
-  color: var(--text);
+  color: var(--design);
   font-weight: 500;
 }
 
@@ -93,7 +106,9 @@
   transform: none;
 }
 .btn--accent {
-  background: var(--accent);
+  background: var(--accent-gradient);
+  background-size: 200% 100%;
+  animation: gradient-shift 14s linear infinite;
   color: var(--accent-ink);
 }
 .btn--accent::before {

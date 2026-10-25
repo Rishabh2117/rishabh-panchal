@@ -1,0 +1,406 @@
+<!doctype html>
+<!-- Source for public/docs/Rishabh-Panchal-CV.pdf. Edit, then run: npm run cv -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rishabh Panchal — CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      :root {
+        --ink: #14161f;
+        --muted: #4f5466;
+        --dim: #7b8094;
+        --line: #e2e4ec;
+        --code: #3d6fd9; /* print-safe version of the site's editor blue */
+        --design: #b9781f; /* print-safe amber */
+        --soft: #f4f6fb;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'Instrument Sans', 'Segoe UI', Arial, sans-serif;
+        color: var(--ink);
+        font-size: 9.6pt;
+        line-height: 1.45;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 14mm 14mm 12mm;
+        position: relative;
+      }
+      .page::before {
+        content: '';
+        position: absolute;
+        inset: 0 0 auto;
+        height: 4px;
+        background: linear-gradient(90deg, var(--code), #8b6fd6 50%, var(--design));
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 6mm;
+        padding-bottom: 5mm;
+        border-bottom: 1px solid var(--line);
+      }
+      h1 {
+        font-family: 'Bricolage Grotesque', sans-serif;
+        font-size: 27pt;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+      .role {
+        margin-top: 2.5mm;
+        font-size: 10.2pt;
+        white-space: nowrap;
+        font-weight: 600;
+        color: var(--code);
+      }
+      .role span {
+        color: var(--design);
+        font-weight: 500;
+      }
+      .contact {
+        text-align: right;
+        font-size: 8.6pt;
+        color: var(--muted);
+        line-height: 1.6;
+        white-space: nowrap;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 58mm;
+        gap: 8mm;
+        margin-top: 5mm;
+      }
+      h2 {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 7.6pt;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--code);
+        margin: 0 0 2.4mm;
+        display: flex;
+        align-items: center;
+        gap: 2mm;
+      }
+      h2::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-radius: 1px;
+        background: currentColor;
+      }
+      section + section {
+        margin-top: 5mm;
+      }
+      .summary {
+        color: var(--muted);
+        font-size: 9.8pt;
+      }
+
+      .job + .job {
+        margin-top: 4mm;
+      }
+      .job-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 4mm;
+      }
+      .job h3 {
+        font-family: 'Bricolage Grotesque', sans-serif;
+        font-size: 11.5pt;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+      .job h3 small {
+        font-family: 'Instrument Sans', sans-serif;
+        font-weight: 500;
+        font-size: 9pt;
+        color: var(--muted);
+      }
+      .dates {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 7.6pt;
+        color: var(--dim);
+        white-space: nowrap;
+      }
+      .badge {
+        display: inline-block;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 6.6pt;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--design);
+        border: 1px solid currentColor;
+        border-radius: 99px;
+        padding: 0.3mm 1.8mm;
+        margin-left: 1.5mm;
+        vertical-align: 1px;
+      }
+      .progression {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2mm 0;
+        margin: 1.6mm 0 2mm;
+        font-size: 8.4pt;
+        color: var(--muted);
+      }
+      .progression span + span::before {
+        content: '→';
+        margin: 0 2mm;
+        color: var(--dim);
+      }
+      .progression b {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      ul.bullets {
+        list-style: none;
+        margin-top: 1.4mm;
+      }
+      ul.bullets li {
+        position: relative;
+        padding-left: 3.6mm;
+        margin-top: 1.1mm;
+      }
+      ul.bullets li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 1.9mm;
+        width: 1.6mm;
+        height: 1px;
+        background: var(--code);
+      }
+      .clients {
+        font-size: 8.6pt;
+        color: var(--muted);
+        margin-top: 1.4mm;
+      }
+      .clients b {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      aside section + section {
+        margin-top: 5mm;
+      }
+      .skill-group + .skill-group {
+        margin-top: 2.6mm;
+      }
+      .skill-group h4 {
+        font-size: 8.4pt;
+        font-weight: 600;
+        margin-bottom: 0.8mm;
+      }
+      .skill-group p {
+        font-size: 8.5pt;
+        color: var(--muted);
+      }
+      .skill-group.design h4 {
+        color: var(--design);
+      }
+      .edu h4 {
+        font-size: 9.2pt;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+      .edu p {
+        font-size: 8.5pt;
+        color: var(--muted);
+        margin-top: 0.8mm;
+      }
+      .pill {
+        display: inline-block;
+        margin-top: 1.6mm;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 7.4pt;
+        background: var(--soft);
+        border-radius: 99px;
+        padding: 0.5mm 2.2mm;
+        color: var(--code);
+      }
+      .plain {
+        font-size: 8.6pt;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div>
+          <h1>Rishabh Panchal</h1>
+          <p class="role">Full Stack Developer <span>· moving toward UI/UX &amp; Product Design</span></p>
+        </div>
+        <div class="contact">
+          Mumbai, India<br />
+          <a href="tel:+919820884288">+91 98208 84288</a> ·
+          <a href="mailto:rishabhpanchalh@gmail.com">rishabhpanchalh@gmail.com</a><br />
+          <a href="https://www.linkedin.com/in/rishabh-panchal-a66029230/">linkedin.com/in/rishabh-panchal-a66029230</a><br />
+          <a href="https://github.com/Rishabh2117/">github.com/Rishabh2117</a>
+        </div>
+      </header>
+
+      <div class="grid">
+        <main>
+          <section>
+            <h2>Profile</h2>
+            <p class="summary">
+              Full Stack Developer with three years at FlyingCursor (Nov 2023 – Oct 2026), growing from intern to
+              Full Stack Developer while building, customising and maintaining client websites in WordPress and Drupal:
+              custom themes, Gutenberg blocks and ACF content systems, interactive JavaScript components, multilingual
+              pages, and form and booking integrations. Now freelancing on Mann Talks and Ecofy while expanding into
+              UI/UX and Product Design.
+            </p>
+          </section>
+
+          <section>
+            <h2>Experience</h2>
+
+            <div class="job">
+              <div class="job-head">
+                <h3>Freelance Full Stack Developer <small>· FlyingCursor</small><span class="badge">Ongoing</span></h3>
+                <span class="dates">Oct 2026 – Present</span>
+              </div>
+              <ul class="bullets">
+                <li><b>Mann Talks</b>: ongoing WordPress development and maintenance.</li>
+                <li><b>Ecofy</b>: ongoing Drupal development and maintenance.</li>
+              </ul>
+            </div>
+
+            <div class="job">
+              <div class="job-head">
+                <h3>FlyingCursor <small>· Mumbai</small></h3>
+                <span class="dates">Nov 2023 – Oct 2026</span>
+              </div>
+              <div class="progression">
+                <span><b>Full Stack Developer</b> Apr 2025 – Oct 2026</span>
+                <span><b>IT Executive</b> Apr 2024 – Mar 2025</span>
+                <span><b>Jr. Full Stack Developer (Intern)</b> Nov 2023 – Mar 2024</span>
+              </div>
+              <ul class="bullets">
+                <li>
+                  Developed, customised and maintained client websites in <b>WordPress</b> and <b>Drupal</b> using PHP,
+                  HTML, CSS, JavaScript and jQuery.
+                </li>
+                <li>
+                  Customised WordPress themes and templates; built reusable <b>Gutenberg blocks</b> with
+                  <b>ACF</b> fields, conditional visibility and Custom Post Types for backend-managed content.
+                </li>
+                <li>
+                  Implemented Drupal themes and <b>Twig</b>-based pages, including homepage banners, media pages and a
+                  blog importer.
+                </li>
+                <li>
+                  Built interactive components: card-stack sliders, responsive carousels, scroll-based header
+                  visibility, fade-in animations, popups and floating-button logic.
+                </li>
+                <li>
+                  Extended <b>Elementor</b> layouts with custom CSS and JavaScript where native options were limited.
+                </li>
+                <li>
+                  Delivered multilingual (English / Hindi) pages, a maintenance-popup system, Contact Form 7 forms
+                  and therapy-booking integration.
+                </li>
+                <li>
+                  Debugged front-end issues (image rendering, opacity and shadow overrides, animation timing) and
+                  ensured consistent responsive, cross-device behaviour.
+                </li>
+                <li>
+                  Ran content and UI QA with SEO-friendly structure, and coordinated releases across development,
+                  staging, UAT and production with designers, editors and internal teams.
+                </li>
+              </ul>
+              <p class="clients">
+                <b>Clients:</b> Mann Talks, Ecofy, ASCI, Vasan Eye Care, KHPT, Mahindra Farm Equipment, Pudding (Houses
+                of Bandra), Visual Sadhan, Men of Platinum, IRTE, Morde.
+              </p>
+            </div>
+          </section>
+        </main>
+
+        <aside>
+          <section>
+            <h2>Skills</h2>
+            <div class="skill-group">
+              <h4>CMS</h4>
+              <p>WordPress (themes, Gutenberg, ACF, CPT, Elementor) · Drupal (Twig)</p>
+            </div>
+            <div class="skill-group">
+              <h4>Frontend</h4>
+              <p>HTML5 · CSS3 · JavaScript · jQuery · Responsive layouts · Cross-browser UI</p>
+            </div>
+            <div class="skill-group">
+              <h4>Backend</h4>
+              <p>PHP · Custom functionality · Template files</p>
+            </div>
+            <div class="skill-group">
+              <h4>Integrations</h4>
+              <p>Contact Form 7 · Polylang · Razorpay embeds · Booking integrations</p>
+            </div>
+            <div class="skill-group">
+              <h4>Workflow</h4>
+              <p>Git / GitLab · Plesk · Staging → UAT → Production · SEO fundamentals · QA</p>
+            </div>
+            <div class="skill-group design">
+              <h4>Design (developing)</h4>
+              <p>UI design · UX fundamentals · Wireframing · Prototyping · Interaction design</p>
+            </div>
+          </section>
+
+          <section class="edu">
+            <h2>Education</h2>
+            <h4>B.Sc. Information Technology</h4>
+            <p>
+              University of Mumbai<br />
+              Nirmala Memorial Foundation College of Commerce &amp; Science · April 2024
+            </p>
+            <span class="pill">CGPI 8.14 / 10</span>
+          </section>
+
+          <section>
+            <h2>Certification</h2>
+            <p class="plain">The Complete 2024 Web Development Bootcamp · Udemy</p>
+          </section>
+
+          <section>
+            <h2>Languages</h2>
+            <p class="plain">English · Hindi · Gujarati · Sanskrit</p>
+          </section>
+
+          <section>
+            <h2>Interests</h2>
+            <p class="plain">Swimming · Music · Martial arts · Cooking · Continuous learning</p>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </body>
+</html>

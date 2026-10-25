@@ -26,7 +26,7 @@
   display: inline-block;
   padding: 5px 10px;
   border-radius: 999px;
-  background: var(--accent);
+  background: var(--design);
   color: var(--accent-ink);
 }
 .pg__badge--muted {
@@ -57,7 +57,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(212, 255, 58, 0.18), transparent);
+  background: linear-gradient(90deg, transparent, var(--design-soft), transparent);
   transform: translateX(-100%);
   animation: shimmer 2.6s var(--ease-in-out) infinite;
 }
@@ -71,7 +71,7 @@
 }
 .wire__nav i:first-child {
   width: 24px;
-  background: var(--accent);
+  background: var(--design);
   margin-right: auto;
 }
 .wire__hero {
@@ -91,7 +91,7 @@
 .wire__btn {
   height: 22px;
   width: 92px;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--design);
   background: transparent !important;
   border-radius: 999px !important;
   margin-top: 6px;

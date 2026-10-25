@@ -59,7 +59,7 @@
   width: 96px;
   height: 96px;
   margin: -48px 0 0 -48px;
-  background: var(--accent);
+  background: var(--accent-gradient);
   border-color: var(--accent);
 }
 .cursor--label .cursor__label {

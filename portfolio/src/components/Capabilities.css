@@ -13,7 +13,7 @@
 .cap__panel--design {
   background: transparent;
   border-style: dashed;
-  border-color: var(--line-strong);
+  border-color: var(--design-soft);
   position: sticky;
   top: 100px;
 }
@@ -46,7 +46,7 @@
 }
 .cap__status--progress i {
   background: transparent;
-  border: 1.5px solid var(--accent);
+  border: 1.5px solid var(--design);
 }
 
 .cap__groups {
@@ -90,8 +90,8 @@
   color: var(--text-muted);
 }
 .cap__chip--design:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--design);
+  color: var(--design);
 }
 .cap__note {
   margin-top: 28px;

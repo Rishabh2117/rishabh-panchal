@@ -33,7 +33,9 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: var(--accent);
+  background: var(--accent-gradient);
+  background-size: 200% 100%;
+  animation: gradient-shift 14s linear infinite;
   color: var(--accent-ink);
   font-family: var(--font-display);
   font-weight: 800;
@@ -154,7 +156,7 @@
   right: 0;
   bottom: -1px;
   height: 2px;
-  background: var(--accent);
+  background: var(--accent-gradient);
   transform-origin: 0 50%;
 }
 
