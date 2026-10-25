@@ -1,0 +1,46 @@
+.contact__title {
+  font-size: var(--fs-mega);
+  margin: 28px 0 clamp(48px, 7vw, 96px);
+}
+.contact__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.contact__email {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.btn--lg {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  padding: 20px 30px;
+}
+.contact__copy {
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 2px;
+}
+.contact__copy:hover {
+  color: var(--accent);
+}
+.contact__links {
+  display: grid;
+  min-width: min(320px, 100%);
+}
+.contact__link {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.15rem;
+  transition: color 0.3s, padding 0.4s var(--ease-out);
+}
+a.contact__link:hover {
+  color: var(--accent);
+  padding-inline: 8px;
+}

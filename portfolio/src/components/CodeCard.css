@@ -1,0 +1,66 @@
+.code-card {
+  margin: 0;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.8);
+}
+.code-card__bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.code-card__bar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+.code-card__bar span:first-child {
+  background: var(--accent);
+}
+.code-card__bar em {
+  margin-left: auto;
+  font-style: normal;
+  color: var(--text-dim);
+}
+.code-card pre {
+  margin: 0;
+  padding: 22px 22px 26px;
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 1vw, 0.85rem);
+  line-height: 1.85;
+  color: var(--text-muted);
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-height: 15.5em;
+}
+.t-k {
+  color: #ff8a65;
+}
+.t-s {
+  color: var(--accent);
+}
+.t-p {
+  color: #8ec5ff;
+}
+.t-c {
+  color: var(--text-dim);
+}
+.code-card__caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: caret 1s steps(1) infinite;
+}
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
