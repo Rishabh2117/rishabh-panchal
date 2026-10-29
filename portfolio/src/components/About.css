@@ -1,14 +1,14 @@
 .about__head {
-  margin: 28px 0 clamp(40px, 6vw, 80px);
+  margin: 24px 0 clamp(36px, 5vw, 64px);
 }
 .about__title {
-  font-size: var(--fs-h1);
+  font-size: var(--fs-h2);
 }
 .about__intro {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: clamp(40px, 7vw, 120px);
-  align-items: start;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
 }
 .about__portrait {
   padding-top: 34px; /* room for the badge */
@@ -16,11 +16,10 @@
 .about__copy {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(1.4rem, 2.8vw, 2.5rem);
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  max-width: 30ch;
-  margin-left: auto;
+  font-size: clamp(1.15rem, 1.8vw, 1.6rem);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  max-width: 40ch;
 }
 @media (max-width: 860px) {
   .about__intro {
@@ -35,7 +34,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(20px, 3vw, 40px);
-  margin-top: clamp(72px, 10vw, 140px);
+  margin-top: clamp(56px, 7vw, 96px);
   counter-reset: journey;
 }
 .journey__item {

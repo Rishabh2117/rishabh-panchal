@@ -22,7 +22,7 @@
   gap: clamp(28px, 5vw, 80px);
 }
 .exp__job + .exp__job {
-  margin-top: clamp(72px, 10vw, 140px);
+  margin-top: clamp(56px, 7vw, 96px);
 }
 .exp__side {
   position: sticky;
@@ -80,7 +80,7 @@
 
 /* Technical highlights */
 .hl {
-  margin-top: clamp(96px, 12vw, 180px);
+  margin-top: clamp(64px, 8vw, 112px);
 }
 .hl__title {
   font-family: var(--font-display);
@@ -222,7 +222,7 @@
 
 /* Education */
 .edu {
-  margin-top: clamp(96px, 12vw, 180px);
+  margin-top: clamp(64px, 8vw, 112px);
 }
 .edu .hl__title {
   margin-bottom: 40px;

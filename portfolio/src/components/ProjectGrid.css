@@ -82,7 +82,7 @@
 .wc__stage {
   position: sticky;
   top: var(--wc-top);
-  height: calc(100vh - var(--wc-top) - 24px);
+  height: var(--wc-stage);
   display: flex;
   flex-direction: column;
   gap: clamp(20px, 3vh, 36px);

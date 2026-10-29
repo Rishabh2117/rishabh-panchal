@@ -40,8 +40,9 @@
 .hero__inner {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: clamp(32px, 5vw, 64px);
+  /* Keep the blocks together and centre them, rather than spreading them over the full viewport */
+  justify-content: center;
+  gap: clamp(28px, 4vw, 52px);
 }
 
 .hero__meta {

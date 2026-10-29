@@ -20,6 +20,8 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const STICKY_TOP = 84;
 /** Scroll distance per project, as a fraction of the viewport height */
 const STEP = 0.9;
+/** Pinned stage height — capped so tall screens don't leave empty space under the cards */
+const STAGE_HEIGHT = `min(calc(100vh - ${STICKY_TOP + 24}px), 780px)`;
 /** Eases raw scroll into a gliding position for the rail line and preview */
 const glide = { stiffness: 70, damping: 20, mass: 0.7 };
 
@@ -161,7 +163,8 @@ export function PinnedCarousel({ items, toolbar }: { items: Project[]; toolbar: 
       className="wc"
       style={{
         '--wc-top': `${STICKY_TOP}px`,
-        height: `calc(100vh - ${STICKY_TOP + 24}px + ${(n - 1) * STEP * 100}vh)`,
+        '--wc-stage': STAGE_HEIGHT,
+        height: `calc(${STAGE_HEIGHT} + ${(n - 1) * STEP * 100}vh)`,
       } as React.CSSProperties}
     >
       <div className="wc__stage">

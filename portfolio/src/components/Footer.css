@@ -1,14 +1,14 @@
 .footer {
   border-top: 1px solid var(--line);
-  padding: clamp(48px, 7vw, 96px) 0 32px;
+  padding: clamp(40px, 5vw, 64px) 0 28px;
   overflow: hidden;
 }
 .footer__wordmark {
-  font-size: clamp(2rem, 10.4vw, 10.5rem);
+  font-size: clamp(1.8rem, 5.2vw, 4.75rem);
   white-space: nowrap;
   color: var(--bg-card);
   line-height: 0.85;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
   transition: color 0.6s;
 }
 .footer:hover .footer__wordmark {
