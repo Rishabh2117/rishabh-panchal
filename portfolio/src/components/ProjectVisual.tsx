@@ -6,7 +6,16 @@ import './ProjectVisual.css';
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
 /** Browser-framed screenshot with inner parallax, or a typographic placeholder when no image exists. */
-export function ProjectVisual({ project, eager = false }: { project: Project; eager?: boolean }) {
+export function ProjectVisual({
+  project,
+  eager = false,
+  still = false,
+}: {
+  project: Project;
+  eager?: boolean;
+  /** Skip the scroll parallax (e.g. inside a pinned carousel) */
+  still?: boolean;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], ['-6%', '6%']);
@@ -29,7 +38,7 @@ export function ProjectVisual({ project, eager = false }: { project: Project; ea
             decoding="async"
             width={1440}
             height={900}
-            style={{ y, scale: 1.14 }}
+            style={still ? undefined : { y, scale: 1.14 }}
           />
         ) : (
           <div className="pv__placeholder">

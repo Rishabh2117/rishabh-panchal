@@ -1,16 +1,32 @@
 // All project content lives here. To add a project, append an object to `projects`.
 // Screenshots go in /public/projects/<slug>/ (desktop.jpg 1440×900, mobile.jpg 390×844 @2x).
 // Leave optional fields undefined rather than inventing details — the UI shows tidy placeholders.
+// Design work uses the same shape: one preview image in images.desktop, tools in `tech`, the tool in `platform`.
 
-export type ProjectCategory = 'client' | 'personal' | 'design';
+/** What kind of work — the Work section's main tabs */
+export type Discipline = 'development' | 'design';
+/** Who it was for — the sub-tabs inside each discipline */
+export type ProjectGroup = 'flyingcursor' | 'freelance' | 'personal';
+
+export const disciplines: { id: Discipline; label: string }[] = [
+  { id: 'development', label: 'Development' },
+  { id: 'design', label: 'Design' },
+];
+
+export const groups: { id: ProjectGroup; label: string; eyebrow: string }[] = [
+  { id: 'flyingcursor', label: 'FlyingCursor', eyebrow: 'Client work at FlyingCursor' },
+  { id: 'freelance', label: 'Freelance', eyebrow: 'Freelance project' },
+  { id: 'personal', label: 'Personal', eyebrow: 'Personal project' },
+];
 
 export interface Project {
   slug: string;
   title: string;
-  category: ProjectCategory;
+  discipline: Discipline;
+  group: ProjectGroup;
   /** e.g. "Client work at FlyingCursor" */
   employer?: string;
-  /** Extra working relationship, shown as a badge (e.g. ongoing freelance) */
+  /** Extra working relationship, shown as a badge (e.g. "Now freelance") */
   engagement?: string;
   sector: string;
   platform: string;
@@ -36,9 +52,10 @@ export const projects: Project[] = [
   {
     slug: 'mann-talks',
     title: 'Mann Talks',
-    category: 'client',
+    discipline: 'development',
+    group: 'flyingcursor',
     employer: 'FlyingCursor',
-    engagement: 'Freelance via FlyingCursor',
+    engagement: 'Now freelance',
     sector: 'Mental health',
     platform: 'WordPress',
     summary:
@@ -58,9 +75,10 @@ export const projects: Project[] = [
   {
     slug: 'ecofy',
     title: 'Ecofy',
-    category: 'client',
+    discipline: 'development',
+    group: 'flyingcursor',
     employer: 'FlyingCursor',
-    engagement: 'Freelance via FlyingCursor',
+    engagement: 'Now freelance',
     sector: 'Green finance',
     platform: 'Drupal',
     summary:
@@ -81,7 +99,8 @@ export const projects: Project[] = [
   {
     slug: 'vasan-eye-care',
     title: 'Vasan Eye Care',
-    category: 'client',
+    discipline: 'development',
+    group: 'flyingcursor',
     employer: 'FlyingCursor',
     sector: 'Healthcare',
     platform: 'WordPress',
@@ -96,7 +115,8 @@ export const projects: Project[] = [
   {
     slug: 'khpt',
     title: 'KHPT',
-    category: 'client',
+    discipline: 'development',
+    group: 'flyingcursor',
     employer: 'FlyingCursor',
     sector: 'Public health',
     platform: 'WordPress',
@@ -115,7 +135,8 @@ export const projects: Project[] = [
   {
     slug: 'mahindra-farm-equipment',
     title: 'Mahindra Farm Equipment',
-    category: 'client',
+    discipline: 'development',
+    group: 'flyingcursor',
     employer: 'FlyingCursor',
     sector: 'Agriculture / Corporate',
     platform: 'WordPress',
@@ -130,7 +151,8 @@ export const projects: Project[] = [
   {
     slug: 'visual-sadhan',
     title: 'Visual Sadhan',
-    category: 'client',
+    discipline: 'development',
+    group: 'flyingcursor',
     employer: 'FlyingCursor',
     sector: 'Web tool',
     platform: 'Web',
@@ -146,7 +168,8 @@ export const projects: Project[] = [
   {
     slug: 'pudding',
     title: 'Pudding — Houses of Bandra',
-    category: 'client',
+    discipline: 'development',
+    group: 'flyingcursor',
     employer: 'FlyingCursor',
     sector: 'Independent publishing',
     platform: 'Web',
@@ -161,7 +184,8 @@ export const projects: Project[] = [
   {
     slug: 'asci',
     title: 'ASCI',
-    category: 'client',
+    discipline: 'development',
+    group: 'flyingcursor',
     employer: 'FlyingCursor',
     sector: 'Advertising standards',
     platform: 'WordPress',
@@ -171,6 +195,26 @@ export const projects: Project[] = [
     url: 'https://www.ascionline.in/',
     images: img('asci'),
     accent: '#3b82f6',
+  },
+  {
+    slug: 'time-centre',
+    title: 'Time Centre',
+    discipline: 'development',
+    group: 'personal',
+    sector: 'Retail / Watches',
+    platform: 'HTML / CSS / JS',
+    summary:
+      'A multi-page website for a watch store, built from scratch in plain HTML, CSS and JavaScript with a responsive layout.',
+    contribution: [
+      'Home, About, Collections and Contact pages',
+      'Product detail page',
+      'Featured collection cards',
+      'Responsive layout with mobile menu',
+    ],
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    url: 'https://rishabh2117.github.io/Time-Centre/index.html',
+    images: img('time-centre'),
+    accent: '#d32f2f',
   },
 ];
 

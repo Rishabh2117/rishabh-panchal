@@ -5,7 +5,7 @@ import { Magnetic } from '../components/motion/Magnetic';
 import { Reveal } from '../components/motion/Reveal';
 import { SplitReveal } from '../components/motion/SplitReveal';
 import { ProjectVisual } from '../components/ProjectVisual';
-import { getProject, projects } from '../data/projects';
+import { getProject, groups, projects } from '../data/projects';
 import { siteConfig } from '../data/siteConfig';
 import { NotFound } from './NotFound';
 import './ProjectDetail.css';
@@ -46,7 +46,7 @@ export function ProjectDetail() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            {project.employer ? `Client work at ${project.employer}` : 'Personal project'} · {project.sector}
+            {groups.find((g) => g.id === project.group)?.eyebrow} · {project.sector}
           </motion.p>
           {project.engagement && (
             <motion.span
@@ -55,7 +55,7 @@ export function ProjectDetail() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.45 }}
             >
-              <i aria-hidden="true" /> {project.engagement} · ongoing
+              <i aria-hidden="true" /> {project.engagement}
             </motion.span>
           )}
 
@@ -69,7 +69,10 @@ export function ProjectDetail() {
           >
             <div>
               <dt className="mono">My role</dt>
-              <dd>Developer{project.employer ? ` at ${project.employer}` : ''}</dd>
+              <dd>
+                {project.discipline === 'design' ? 'Designer' : 'Developer'}
+                {project.employer ? ` at ${project.employer}` : ''}
+              </dd>
             </div>
             <div>
               <dt className="mono">Platform</dt>

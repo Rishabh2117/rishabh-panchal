@@ -18,6 +18,7 @@ const targets = {
   'mahindra-farm-equipment': 'https://www.mahindrafarmequipment.com/',
   pudding: 'https://housesofbandra.com/',
   asci: 'https://www.ascionline.in/',
+  'time-centre': 'https://rishabh2117.github.io/Time-Centre/index.html',
 };
 
 const variants = [
