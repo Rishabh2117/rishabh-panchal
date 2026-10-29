@@ -91,6 +91,8 @@
 .wc__body {
   flex: 1;
   min-height: 0;
+  /* Cap so tall screens don't open a gap under the tabs */
+  max-height: 620px;
   display: grid;
   grid-template-columns: 210px minmax(0, 0.95fr) minmax(0, 1.1fr);
   gap: clamp(24px, 3.5vw, 64px);
