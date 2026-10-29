@@ -1,22 +1,54 @@
+/* Floating glass pill — always visible, tightens once the page scrolls */
 .nav {
   position: fixed;
   inset: 0 0 auto;
   z-index: 100;
-  transition: background-color 0.4s, border-color 0.4s;
-  border-bottom: 1px solid transparent;
+  padding: 14px var(--gutter) 0;
+  pointer-events: none;
+  transition: padding 0.6s var(--ease-out);
 }
 .nav--scrolled {
-  background: rgba(13, 13, 12, 0.78);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom-color: var(--line);
+  padding-top: 10px;
 }
-.nav__inner {
+.nav__bar {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  height: 76px;
+  gap: 20px;
+  max-width: 1120px;
+  height: 64px;
+  margin-inline: auto;
+  padding: 0 10px 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(21, 22, 29, 0.42);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 10px 30px -14px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+  transition:
+    max-width 0.7s var(--ease-out),
+    height 0.7s var(--ease-out),
+    background-color 0.5s,
+    border-color 0.5s,
+    box-shadow 0.5s;
+}
+.nav--scrolled .nav__bar {
+  max-width: 960px;
+  height: 58px;
+  background: rgba(21, 22, 29, 0.74);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 2px 6px rgba(0, 0, 0, 0.25),
+    0 18px 44px -16px rgba(0, 0, 0, 0.7);
+}
+.nav--open .nav__bar {
+  background: var(--bg-card);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .nav__brand {
@@ -32,7 +64,7 @@
   place-items: center;
   width: 40px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 50%;
   background: var(--accent-gradient);
   background-size: 200% 100%;
   animation: gradient-shift 14s linear infinite;
@@ -51,37 +83,40 @@
 }
 
 .nav__links {
+  position: relative;
   display: flex;
-  gap: clamp(20px, 3vw, 40px);
+  gap: 2px;
 }
 .nav__link {
-  font-size: 0.95rem;
+  position: relative;
+  z-index: 1;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 0.92rem;
   color: var(--text-muted);
-  transition: color 0.3s;
+  transition: color 0.35s var(--ease-out);
 }
-.nav__link:hover {
+.nav__link.is-lit {
   color: var(--text);
 }
-/* Rolling text hover */
-.nav__link-text {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  vertical-align: top;
+.nav__link:focus-visible {
+  outline: none;
 }
-.nav__link-text::after {
-  content: attr(data-text);
+/* Sliding pill behind the links, tinted by the section's tone */
+.nav__pill {
   position: absolute;
+  top: 0;
+  bottom: 0;
   left: 0;
-  top: 100%;
-  color: var(--accent);
-}
-.nav__link-text,
-.nav__link-text::after {
-  transition: transform 0.45s var(--ease-out);
-}
-.nav__link:hover .nav__link-text {
-  transform: translateY(-100%);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--tone) 13%, transparent);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--tone) 22%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition:
+    background-color 0.45s var(--ease-out),
+    box-shadow 0.45s var(--ease-out);
+  pointer-events: none;
 }
 
 .nav__end {
@@ -150,14 +185,18 @@
   transform: rotate(-45deg);
 }
 
+/* Thin reading-progress line along the pill's lower edge */
 .nav__progress {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 28px;
+  right: 28px;
   bottom: -1px;
-  height: 2px;
+  height: 1.5px;
+  border-radius: 2px;
   background: var(--accent-gradient);
+  opacity: 0.55;
   transform-origin: 0 50%;
+  pointer-events: none;
 }
 
 /* Mobile menu */
@@ -181,12 +220,16 @@
   font-size: clamp(2.8rem, 13vw, 5rem);
   text-align: left;
 }
-.menu__link .mono {
-  color: var(--accent);
+.menu__link {
+  transition: color 0.35s var(--ease-out);
 }
 .menu__link:hover,
-.menu__link:focus-visible {
-  color: var(--accent);
+.menu__link:focus-visible,
+.menu__link.is-active {
+  color: var(--tone);
+}
+.menu__link .mono {
+  color: var(--tone);
 }
 .menu__foot {
   margin-top: 40px;
@@ -202,6 +245,14 @@
   }
   .nav__toggle {
     display: block;
+  }
+  .nav {
+    padding: 10px 12px 0;
+  }
+  .nav__bar,
+  .nav--scrolled .nav__bar {
+    height: 56px;
+    padding: 0 6px 0 8px;
   }
 }
 @media (max-width: 380px) {
