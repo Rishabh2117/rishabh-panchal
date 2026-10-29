@@ -6,9 +6,9 @@ const RADIUS = 170; // pointer influence radius
 const GLOW = 280; // colour glow radius
 
 // Keep in sync with --accent / --accent-2 / --accent-3 in tokens.css
-const BLUE = [122, 162, 247]; // code
-const MINT = [115, 218, 202]; // design
-const PURPLE = [187, 154, 247]; // where they meet
+const BLUE = [108, 182, 255]; // code
+const DEEP = [51, 102, 255]; // design
+const PURPLE = [80, 142, 255]; // where they meet
 const mix = (a: number, b: number, t: number) => a + (b - a) * t;
 
 interface Dot {
@@ -22,7 +22,7 @@ interface Dot {
 
 /**
  * Interactive dot field behind the hero: dots ripple in a slow wave, scatter away
- * from the pointer and spring back, tinted code-blue → design-mint with a purple glow near it.
+ * from the pointer and spring back, tinted code-blue → design deep blue with a mid-blue glow near it.
  * Pauses off-screen; renders a single static frame for reduced motion.
  */
 export function HeroField() {
@@ -78,11 +78,11 @@ export function HeroField() {
 
         const wave = Math.sin(d.ox * 0.011 + t * 0.0011) * Math.cos(d.oy * 0.013 - t * 0.0009);
         const glow = Math.max(0, 1 - dist / GLOW);
-        // Code blue on the left blending to design mint on the right; purple close to the pointer
+        // Code blue on the left blending to design deep blue on the right; mid blue close to the pointer
         const k = d.ox / w;
-        const r = mix(mix(BLUE[0], MINT[0], k), PURPLE[0], glow);
-        const g = mix(mix(BLUE[1], MINT[1], k), PURPLE[1], glow);
-        const b = mix(mix(BLUE[2], MINT[2], k), PURPLE[2], glow);
+        const r = mix(mix(BLUE[0], DEEP[0], k), PURPLE[0], glow);
+        const g = mix(mix(BLUE[1], DEEP[1], k), PURPLE[1], glow);
+        const b = mix(mix(BLUE[2], DEEP[2], k), PURPLE[2], glow);
         const alpha = 0.07 + (wave + 1) * 0.05 + glow * 0.55;
         const size = 1.1 + glow * 1.9 + (wave + 1) * 0.2;
 

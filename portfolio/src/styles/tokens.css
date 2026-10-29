@@ -1,6 +1,6 @@
 :root {
   /* Color */
-  /* "Night Editor": cool editor blue = code, soft mint = design, soft purple where they meet */
+  /* "Night Editor": sky blue = code, deep blue = design + hover/highlight */
   --bg: #0e0f14;
   --bg-raised: #15161d;
   --bg-card: #1b1c25;
@@ -9,19 +9,19 @@
   --text: #ecebe7;
   --text-muted: #9c9eae;
   --text-dim: #6c6f82;
-  --accent: #7aa2f7; /* code — editor blue; solid uses: text, borders, dots */
-  --accent-2: #73daca; /* design — soft mint */
-  --accent-3: #bb9af7; /* blend — soft purple */
+  --accent: #6cb6ff; /* code — sky blue; solid uses: text, borders, dots */
+  --accent-2: #3366ff; /* design — deep blue */
+  --accent-3: #508eff; /* blend — mid blue, between the two */
   --code: var(--accent);
   --design: var(--accent-2);
-  --accent-soft: rgba(122, 162, 247, 0.16);
-  --design-soft: rgba(115, 218, 202, 0.16);
-  --accent-gradient: linear-gradient(100deg, var(--accent), var(--accent-3) 33%, var(--accent-2) 66%, var(--accent));
+  --hover: var(--accent-2); /* hover & highlight colour */
+  --accent-soft: rgba(108, 182, 255, 0.16);
+  --design-soft: rgba(51, 102, 255, 0.16);
   --accent-ink: #0d0d0c;
+  --hover-ink: #f4f6ff; /* text on deep-blue hover fills */
   /* Soft glows — keep dim */
-  --glow-code: 0 0 24px rgba(122, 162, 247, 0.28);
-  --glow-design: 0 0 24px rgba(115, 218, 202, 0.26);
-  --glow-mix: 0 0 32px -4px rgba(122, 162, 247, 0.35), 0 0 48px -8px rgba(115, 218, 202, 0.25);
+  --glow-code: 0 0 24px rgba(108, 182, 255, 0.28);
+  --glow-design: 0 0 24px rgba(51, 102, 255, 0.3);
 
   /* Type */
   --font-display: 'Bricolage Grotesque', 'Arial Narrow', system-ui, sans-serif;

@@ -129,7 +129,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(260px circle at var(--mx) var(--my), var(--accent), transparent 70%);
+  background: radial-gradient(260px circle at var(--mx) var(--my), var(--hover), transparent 70%);
   opacity: 0;
   transition: opacity 0.4s;
 }

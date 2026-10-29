@@ -27,7 +27,7 @@
   padding: 5px 10px;
   border-radius: 999px;
   background: var(--design);
-  color: var(--accent-ink);
+  color: var(--hover-ink);
 }
 .pg__badge--muted {
   background: var(--bg-card);

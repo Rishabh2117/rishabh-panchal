@@ -13,7 +13,7 @@
   transition: color 0.3s, gap 0.4s var(--ease-out);
 }
 .pd__back:hover {
-  color: var(--accent);
+  color: var(--hover);
   gap: 16px;
 }
 .pd__title {
@@ -42,8 +42,8 @@
   transition: color 0.3s, border-color 0.3s;
 }
 .pd__links a:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--hover);
+  border-color: var(--hover);
 }
 .pd__links small {
   color: var(--text-dim);
@@ -142,7 +142,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--accent-gradient);
+  background: var(--hover);
   transform: translateY(101%);
   transition: transform 0.7s var(--ease-out);
   z-index: -1;
@@ -163,7 +163,7 @@
 }
 .pd__next:hover .mono,
 .pd__next:hover .pd__next-title {
-  color: var(--accent-ink);
+  color: var(--hover-ink);
 }
 
 @media (max-width: 860px) {

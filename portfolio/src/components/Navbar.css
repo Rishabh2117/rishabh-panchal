@@ -65,9 +65,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--accent-gradient);
-  background-size: 200% 100%;
-  animation: gradient-shift 14s linear infinite;
+  background: var(--accent);
   color: var(--accent-ink);
   font-family: var(--font-display);
   font-weight: 800;
@@ -138,9 +136,9 @@
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 .nav__resume:not(.is-disabled):hover {
-  background: var(--accent);
-  color: var(--accent-ink);
-  border-color: var(--accent);
+  background: var(--hover);
+  color: var(--hover-ink);
+  border-color: var(--hover);
 }
 .is-disabled {
   color: var(--text-dim);
@@ -193,7 +191,7 @@
   bottom: -1px;
   height: 1.5px;
   border-radius: 2px;
-  background: var(--accent-gradient);
+  background: var(--accent);
   opacity: 0.55;
   transform-origin: 0 50%;
   pointer-events: none;

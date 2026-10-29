@@ -35,11 +35,11 @@
 }
 .footer__links a:hover,
 .footer__links button:hover {
-  color: var(--accent);
+  color: var(--hover);
 }
 .footer__top {
   color: var(--text-muted);
 }
 .footer__top:hover {
-  color: var(--accent);
+  color: var(--hover);
 }

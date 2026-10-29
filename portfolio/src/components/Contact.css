@@ -39,7 +39,7 @@
   padding-bottom: 2px;
 }
 .contact__copy:hover {
-  color: var(--accent);
+  color: var(--hover);
 }
 .contact__links {
   display: grid;
@@ -58,6 +58,6 @@
   transition: color 0.3s, padding 0.4s var(--ease-out);
 }
 a.contact__link:hover {
-  color: var(--accent);
+  color: var(--hover);
   padding-inline: 8px;
 }

@@ -18,7 +18,7 @@
   position: absolute;
   inset: 12% -6% -4% 10%;
   z-index: -1;
-  background: var(--accent-gradient);
+  background: var(--accent);
   filter: blur(70px);
   opacity: 0.18;
 }

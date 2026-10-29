@@ -25,9 +25,9 @@
   inset: -20%;
   z-index: -1;
   background:
-    radial-gradient(35% 40% at 25% 30%, rgba(122, 162, 247, 0.13), transparent 70%),
-    radial-gradient(30% 35% at 75% 25%, rgba(115, 218, 202, 0.11), transparent 70%),
-    radial-gradient(30% 35% at 60% 80%, rgba(187, 154, 247, 0.07), transparent 70%);
+    radial-gradient(35% 40% at 25% 30%, rgba(108, 182, 255, 0.13), transparent 70%),
+    radial-gradient(30% 35% at 75% 25%, rgba(51, 102, 255, 0.09), transparent 70%),
+    radial-gradient(30% 35% at 60% 80%, rgba(51, 102, 255, 0.07), transparent 70%);
   filter: blur(40px);
   animation: aurora 18s ease-in-out infinite alternate;
 }
@@ -107,23 +107,24 @@
   transform: none;
 }
 .btn--accent {
-  background: var(--accent-gradient);
-  background-size: 200% 100%;
-  animation: gradient-shift 14s linear infinite;
+  background: var(--accent);
   color: var(--accent-ink);
 }
+.btn--accent:hover {
+  color: var(--hover-ink);
+}
 .btn--accent::before {
-  background: var(--text);
+  background: var(--hover);
 }
 .btn--ghost {
   border: 1px solid var(--line-strong);
 }
 .btn--ghost::before {
-  background: var(--text);
+  background: var(--hover);
 }
 .btn--ghost:hover {
-  color: var(--accent-ink);
-  border-color: var(--text);
+  color: var(--hover-ink);
+  border-color: var(--hover);
 }
 .btn__icon {
   display: inline-grid;
