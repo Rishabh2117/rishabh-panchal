@@ -70,7 +70,7 @@
 .journey__item p {
   color: var(--text-muted);
 }
-/* Then = code (blue) → Next = design (amber) */
+/* Then = code (blue) → Next = design (mint) */
 .journey__item:nth-child(3) .journey__step {
   color: var(--design);
 }

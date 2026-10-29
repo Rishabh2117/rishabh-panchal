@@ -7,7 +7,7 @@ import { useSectionNav } from '../hooks/useSectionNav';
 import { Magnetic } from './motion/Magnetic';
 import './Navbar.css';
 
-// Tone tints the sliding pill: code blue, design amber, blend purple
+// Tone tints the sliding pill: code blue, design mint, blend purple
 const navItems = [
   { id: 'work', label: 'Work', tone: 'var(--accent)' },
   { id: 'about', label: 'About', tone: 'var(--accent-2)' },

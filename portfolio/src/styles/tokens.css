@@ -1,6 +1,6 @@
 :root {
   /* Color */
-  /* "Night Editor": cool editor blue = code, warm amber = design, soft purple where they meet */
+  /* "Night Editor": cool editor blue = code, soft mint = design, soft purple where they meet */
   --bg: #0e0f14;
   --bg-raised: #15161d;
   --bg-card: #1b1c25;
@@ -10,14 +10,18 @@
   --text-muted: #9c9eae;
   --text-dim: #6c6f82;
   --accent: #7aa2f7; /* code — editor blue; solid uses: text, borders, dots */
-  --accent-2: #e0af68; /* design — warm amber */
+  --accent-2: #73daca; /* design — soft mint */
   --accent-3: #bb9af7; /* blend — soft purple */
   --code: var(--accent);
   --design: var(--accent-2);
   --accent-soft: rgba(122, 162, 247, 0.16);
-  --design-soft: rgba(224, 175, 104, 0.16);
+  --design-soft: rgba(115, 218, 202, 0.16);
   --accent-gradient: linear-gradient(100deg, var(--accent), var(--accent-3) 33%, var(--accent-2) 66%, var(--accent));
   --accent-ink: #0d0d0c;
+  /* Soft glows — keep dim */
+  --glow-code: 0 0 24px rgba(122, 162, 247, 0.28);
+  --glow-design: 0 0 24px rgba(115, 218, 202, 0.26);
+  --glow-mix: 0 0 32px -4px rgba(122, 162, 247, 0.35), 0 0 48px -8px rgba(115, 218, 202, 0.25);
 
   /* Type */
   --font-display: 'Bricolage Grotesque', 'Arial Narrow', system-ui, sans-serif;

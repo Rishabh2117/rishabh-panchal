@@ -7,7 +7,7 @@ import { Reveal } from './motion/Reveal';
 import { SplitReveal } from './motion/SplitReveal';
 import './ProjectGrid.css';
 
-// Development reads as code blue, design as design amber
+// Development reads as code blue, design as design mint
 const tones: Record<Discipline, string> = { development: 'var(--accent)', design: 'var(--accent-2)' };
 
 const notes: Partial<Record<ProjectGroup, string>> = {

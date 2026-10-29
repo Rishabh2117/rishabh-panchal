@@ -25,8 +25,8 @@
   inset: -20%;
   z-index: -1;
   background:
-    radial-gradient(35% 40% at 25% 30%, rgba(122, 162, 247, 0.1), transparent 70%),
-    radial-gradient(30% 35% at 75% 25%, rgba(224, 175, 104, 0.07), transparent 70%),
+    radial-gradient(35% 40% at 25% 30%, rgba(122, 162, 247, 0.13), transparent 70%),
+    radial-gradient(30% 35% at 75% 25%, rgba(115, 218, 202, 0.11), transparent 70%),
     radial-gradient(30% 35% at 60% 80%, rgba(187, 154, 247, 0.07), transparent 70%);
   filter: blur(40px);
   animation: aurora 18s ease-in-out infinite alternate;
