@@ -31,4 +31,3 @@ export const designSkills: SkillGroup[] = [
   },
 ];
 
-export const marqueeItems = ['WordPress', 'Drupal', 'PHP', 'JavaScript', 'Twig', 'ACF', 'Gutenberg', 'jQuery', 'CSS3'];

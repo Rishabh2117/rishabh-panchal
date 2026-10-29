@@ -5,10 +5,8 @@ import { Capabilities } from '../components/Capabilities';
 import { Contact } from '../components/Contact';
 import { Experience } from '../components/Experience';
 import { Hero } from '../components/Hero';
-import { Marquee } from '../components/motion/Marquee';
 import { Playground } from '../components/Playground';
 import { ProjectGrid } from '../components/ProjectGrid';
-import { marqueeItems } from '../data/skills';
 import { siteConfig } from '../data/siteConfig';
 
 export function Home() {
@@ -27,13 +25,11 @@ export function Home() {
   return (
     <>
       <Hero />
-      <Marquee items={marqueeItems} />
       <ProjectGrid />
       <About />
       <Capabilities />
       <Experience />
       <Playground />
-      <Marquee items={['Open to conversations', 'Development', 'UI/UX', 'Product design']} reverse />
       <Contact />
     </>
   );
