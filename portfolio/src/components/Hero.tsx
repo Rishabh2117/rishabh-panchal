@@ -55,7 +55,7 @@ export function Hero() {
               <Magnetic>
                 <button className="btn btn--accent" onClick={() => goTo('work')}>
                   Explore work
-                  <span className="btn__icon" aria-hidden="true">↓</span>
+                  <span className="btn__icon" data-dir="down" aria-hidden="true"><span>↓</span></span>
                 </button>
               </Magnetic>
               <Magnetic>

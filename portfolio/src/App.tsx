@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { Cursor } from './components/Cursor';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
+import { useButtonFill } from './hooks/useButtonFill';
 import { Home } from './pages/Home';
 import { NotFound } from './pages/NotFound';
 import { ProjectDetail } from './pages/ProjectDetail';
@@ -29,6 +30,7 @@ function Page({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   const location = useLocation();
+  useButtonFill();
 
   return (
     <MotionConfig reducedMotion="user">

@@ -92,25 +92,32 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  transition: color 0.4s var(--ease-out), border-color 0.4s;
+  transition: color 0.45s var(--ease-out), border-color 0.4s;
 }
+/* Hover fill: a circle that grows from where the pointer enters (useButtonFill sets
+   --fill-x/--fill-y) and shrinks toward where it leaves. 250% of the width covers the
+   whole pill from any entry point. Keyboard focus grows it from the centre. */
 .btn::before {
   content: '';
   position: absolute;
-  inset: 0;
   z-index: -1;
-  border-radius: inherit;
-  transform: translateY(101%);
-  transition: transform 0.5s var(--ease-out);
+  left: var(--fill-x, 50%);
+  top: var(--fill-y, 50%);
+  width: 250%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.6s var(--ease-out);
+  pointer-events: none;
 }
-.btn:hover::before {
-  transform: none;
+.btn:is(:hover, :focus-visible)::before {
+  transform: translate(-50%, -50%) scale(1);
 }
 .btn--accent {
   background: var(--accent);
   color: var(--accent-ink);
 }
-.btn--accent:hover {
+.btn--accent:is(:hover, :focus-visible) {
   color: var(--hover-ink);
 }
 .btn--accent::before {
@@ -122,7 +129,7 @@
 .btn--ghost::before {
   background: var(--hover);
 }
-.btn--ghost:hover {
+.btn--ghost:is(:hover, :focus-visible) {
   color: var(--hover-ink);
   border-color: var(--hover);
 }
@@ -132,13 +139,36 @@
   width: 26px;
   height: 26px;
   border-radius: 50%;
+  overflow: hidden;
   background: var(--accent-ink);
   color: var(--accent);
   font-size: 0.85rem;
-  transition: transform 0.5s var(--ease-out);
+  transition:
+    background-color 0.45s var(--ease-out),
+    color 0.45s var(--ease-out);
 }
-.btn:hover .btn__icon {
-  transform: rotate(-45deg);
+.btn:is(:hover, :focus-visible) .btn__icon {
+  background: var(--hover-ink);
+  color: var(--hover);
+}
+/* The arrow slides out the way it points and back in from the opposite side */
+.btn__icon > span {
+  display: inline-block;
+}
+.btn__icon[data-dir='down'] { --dx: 0; --dy: 1; }
+.btn__icon[data-dir='up-right'] { --dx: 1; --dy: -1; }
+.btn__icon[data-dir='right'] { --dx: 1; --dy: 0; }
+.btn__icon[data-dir='left'] { --dx: -1; --dy: 0; }
+.btn:is(:hover, :focus-visible) .btn__icon > span {
+  animation: btn-arrow 0.6s var(--ease-out);
+}
+@keyframes btn-arrow {
+  45% {
+    transform: translate(calc(var(--dx) * 140%), calc(var(--dy) * 140%));
+  }
+  45.01% {
+    transform: translate(calc(var(--dx) * -140%), calc(var(--dy) * -140%));
+  }
 }
 
 .hero__scroll {

@@ -89,7 +89,7 @@ function ProjectInfo({ project }: { project: Project }) {
       </motion.ul>
       <motion.div className="wc__actions" variants={itemVariants}>
         <Link to={`/work/${project.slug}`} className="btn btn--accent" data-cursor="View">
-          View project <span className="btn__icon" aria-hidden="true">→</span>
+          View project <span className="btn__icon" data-dir="right" aria-hidden="true"><span>→</span></span>
         </Link>
         {project.url && (
           <a className="wc__live" href={project.url} target="_blank" rel="noreferrer">

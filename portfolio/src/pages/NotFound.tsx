@@ -8,7 +8,7 @@ export function NotFound() {
         Page not <span className="accent">found.</span>
       </h1>
       <Link to="/" className="btn btn--accent">
-        Back home <span className="btn__icon" aria-hidden="true">←</span>
+        Back home <span className="btn__icon" data-dir="left" aria-hidden="true"><span>←</span></span>
       </Link>
     </section>
   );

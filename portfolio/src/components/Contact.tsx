@@ -46,7 +46,7 @@ export function Contact() {
                 <Magnetic strength={0.2}>
                   <a className="btn btn--accent btn--lg" href={`mailto:${email}`}>
                     {email}
-                    <span className="btn__icon" aria-hidden="true">↗</span>
+                    <span className="btn__icon" data-dir="up-right" aria-hidden="true"><span>↗</span></span>
                   </a>
                 </Magnetic>
                 <button className="contact__copy mono" onClick={copy} aria-live="polite">
