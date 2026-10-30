@@ -9,6 +9,34 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Scrollbar: thin sky-blue thumb on the page background, deep blue while hovered/dragged */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background: var(--hover);
+}
+::-webkit-scrollbar-corner {
+  background: var(--bg);
+}
+/* Firefox has no ::-webkit-scrollbar, so it gets the standard properties instead */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--bg);
+  }
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -231,6 +259,12 @@ html.has-custom-cursor,
 html.has-custom-cursor a,
 html.has-custom-cursor button {
   cursor: none;
+}
+/* Form fields keep the real text cursor; the custom one hides over them */
+html.has-custom-cursor input,
+html.has-custom-cursor textarea,
+html.has-custom-cursor select {
+  cursor: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
