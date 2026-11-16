@@ -230,6 +230,29 @@ export const projects: Project[] = [
     images: img('time-centre'),
     accent: '#d32f2f',
   },
+  {
+    slug: 'resq-pod',
+    title: 'RESQ Pod',
+    discipline: 'design',
+    group: 'personal',
+    sector: 'Emergency safety / Disaster relief',
+    platform: 'Product Design',
+    summary:
+      'A next-generation civil survival capsule engineered for catastrophic flooding, earthquakes, and building collapses — 3 occupants, 24–72 hours of closed-atmosphere life support, 406 MHz GNSS distress beacon, and a 120 kN crush-tested exoskeleton roll-cage.',
+    contribution: [
+      'Full product concept and mission profile',
+      'Structural system design: HDPE shell, Ti/Al internal frame, Chromoly roll-cage',
+      'Life-support subsystems: O₂ storage, CO₂ scrubber, acoustic pinger, GNSS beacon',
+      'Orthographic projections and engineering dimensional specification',
+      'Interior architecture and 12-system component directory',
+      'Design specification documentation',
+      'Interactive 3D model presentation',
+    ],
+    tech: ['3D Modelling', 'Product Design', 'Engineering Specification', 'CAD Rendering'],
+    url: 'https://rishabh2117.github.io/RESQ-pod/',
+    images: { desktop: 'projects/resq-pod/desktop.jpg' },
+    accent: '#f97316',
+  },
 ];
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
