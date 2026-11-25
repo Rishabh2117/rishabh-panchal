@@ -288,6 +288,114 @@
   }
 }
 
+/* Mobile scroll carousel */
+.wmsc {
+  position: relative;
+}
+.wmsc__stage {
+  position: sticky;
+  top: var(--wmsc-top);
+  height: var(--wmsc-stage);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+}
+.wmsc__viewport {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+.wmsc__track {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+}
+.wmsc__panel {
+  flex-shrink: 0;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 200px 1fr;
+  gap: 14px;
+  overflow: hidden;
+  padding: 0 16px;
+}
+.wmsc__panel-image {
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.wmsc__panel-image .pv {
+  height: 100%;
+  border-radius: 12px;
+}
+.wmsc__panel-info {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+  align-content: start;
+  overflow: hidden;
+  padding-bottom: 4px;
+}
+.wmsc__title {
+  font-size: clamp(1.4rem, 5.5vw, 2rem);
+  line-height: 1.1;
+}
+.wmsc__footer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 8px;
+  flex-shrink: 0;
+}
+.wmsc__count {
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+.wmsc__count b {
+  font-weight: 500;
+  color: var(--tone);
+}
+.wmsc__scrubber {
+  flex: 1;
+  height: 2px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.wmsc__scrubber-fill {
+  height: 100%;
+  background: var(--tone);
+  border-radius: 2px;
+  transform-origin: 0 50%;
+}
+.wmsc__footer-nav {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.wmsc__arrow {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: color 0.3s, border-color 0.3s, background-color 0.3s, opacity 0.3s;
+}
+.wmsc__arrow:not(:disabled):hover {
+  color: var(--text);
+  border-color: var(--tone);
+  background: color-mix(in srgb, var(--tone) 12%, transparent);
+}
+.wmsc__arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
 /* Stacked list for small screens */
 .wl {
   display: grid;

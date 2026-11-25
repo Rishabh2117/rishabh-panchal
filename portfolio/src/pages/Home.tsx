@@ -3,9 +3,9 @@ import { useLocation } from 'react-router-dom';
 import { About } from '../components/About';
 import { Capabilities } from '../components/Capabilities';
 import { Contact } from '../components/Contact';
+import { DesignSection } from '../components/DesignSection';
 import { Experience } from '../components/Experience';
 import { Hero } from '../components/Hero';
-import { Playground } from '../components/Playground';
 import { ProjectGrid } from '../components/ProjectGrid';
 import { siteConfig } from '../data/siteConfig';
 
@@ -29,7 +29,7 @@ export function Home() {
       <About />
       <Capabilities />
       <Experience />
-      <Playground />
+      <DesignSection />
       <Contact />
     </>
   );

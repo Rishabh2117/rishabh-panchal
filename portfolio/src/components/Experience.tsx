@@ -1,26 +1,10 @@
 import { motion, useScroll, useSpring } from 'motion/react';
 import { useRef } from 'react';
-import { certifications, education, experience, languages, technicalHighlights } from '../data/experience';
-import { useFinePointer } from '../hooks/useFinePointer';
+import { certifications, education, experience, languages } from '../data/experience';
 import { Reveal } from './motion/Reveal';
 import { SplitReveal } from './motion/SplitReveal';
 import './Experience.css';
 
-/** Card with a border spotlight that tracks the pointer. */
-function SpotlightCard({ children }: { children: React.ReactNode }) {
-  const fine = useFinePointer();
-  const onMove = (e: React.PointerEvent<HTMLLIElement>) => {
-    if (!fine) return;
-    const r = e.currentTarget.getBoundingClientRect();
-    e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
-    e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
-  };
-  return (
-    <li className="spot" onPointerMove={onMove}>
-      {children}
-    </li>
-  );
-}
 
 export function Experience() {
   const lineRef = useRef<HTMLDivElement>(null);
@@ -83,30 +67,7 @@ export function Experience() {
           ))}
         </div>
 
-        <div className="hl">
-          <Reveal>
-            <h3 className="hl__title">
-              Under the hood <span className="mono">· Technical highlights</span>
-            </h3>
-            <p className="hl__intro">
-              Implementation work from my time at FlyingCursor — candidates for future in-depth technical case studies.
-            </p>
-          </Reveal>
-          <ul className="hl__grid">
-            {technicalHighlights.map((h, i) => (
-              <SpotlightCard key={h.title}>
-                <Reveal y={24} delay={(i % 3) * 0.08} className="spot__inner">
-                  <span className="mono spot__num">{String(i + 1).padStart(2, '0')}</span>
-                  <h4>{h.title}</h4>
-                  <p>{h.detail}</p>
-                  <span className="mono spot__tech">{h.tech}</span>
-                </Reveal>
-              </SpotlightCard>
-            ))}
-          </ul>
-        </div>
-
-        <div className="edu" id="education">
+<div className="edu" id="education">
           <Reveal>
             <h3 className="hl__title">
               Education <span className="mono">· Degree & certifications</span>

@@ -6,7 +6,7 @@
 /** What kind of work — the Work section's main tabs */
 export type Discipline = 'development' | 'design';
 /** Who it was for — the sub-tabs inside each discipline */
-export type ProjectGroup = 'flyingcursor' | 'freelance' | 'personal';
+export type ProjectGroup = 'flyingcursor' | 'freelance' | 'personal' | 'product-design' | 'ui-design';
 
 export const disciplines: { id: Discipline; label: string }[] = [
   { id: 'development', label: 'Development' },
@@ -234,7 +234,7 @@ export const projects: Project[] = [
     slug: 'resq-pod',
     title: 'RESQ Pod',
     discipline: 'design',
-    group: 'personal',
+    group: 'product-design',
     sector: 'Emergency safety / Disaster relief',
     platform: 'Product Design',
     summary:
@@ -252,6 +252,27 @@ export const projects: Project[] = [
     url: 'https://rishabh2117.github.io/RESQ-pod/',
     images: { desktop: 'projects/resq-pod/desktop.jpg' },
     accent: '#f97316',
+  },
+  {
+    slug: 'time-centre',
+    title: 'Time Centre',
+    discipline: 'design',
+    group: 'ui-design',
+    sector: 'Retail / Watches',
+    platform: 'Web Design',
+    summary:
+      'Visual design for a watch retail website — brand identity, typography, colour system and responsive layout built from the ground up.',
+    contribution: [
+      'Visual direction and brand identity',
+      'Typography and colour system',
+      'Responsive layout and grid design',
+      'Product card design and hover interactions',
+      'Navigation and mobile menu design',
+    ],
+    tech: ['UI Design', 'CSS', 'Responsive Design', 'Typography'],
+    url: 'https://rishabh2117.github.io/Time-Centre/index.html',
+    images: img('time-centre'),
+    accent: '#d32f2f',
   },
 ];
 

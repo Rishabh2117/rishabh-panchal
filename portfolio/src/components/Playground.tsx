@@ -34,7 +34,7 @@ export function Playground() {
           <Reveal>
             <span className="eyebrow mono">Next chapter</span>
           </Reveal>
-          <SplitReveal id="pg-title" lines={['Design work', '& playground']} className="display" accentLines={[1]} />
+          <SplitReveal id="pg-title" lines={["What's", 'next']} className="display" accentLines={[1]} />
         </header>
 
         <div className="pg__grid">

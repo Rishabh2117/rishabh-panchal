@@ -9,7 +9,7 @@ import {
   type MotionValue,
   type Variants,
 } from 'motion/react';
-import { useCallback, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import type { Project } from '../data/projects';
 import { ProjectVisual } from './ProjectVisual';
@@ -24,6 +24,8 @@ const STEP = 0.9;
 const STAGE_HEIGHT = `min(calc(100vh - ${STICKY_TOP + 24}px), 780px)`;
 /** Eases raw scroll into a gliding position for the rail line and preview */
 const glide = { stiffness: 70, damping: 20, mass: 0.7 };
+/** Extra scroll steps held at first and last card before movement begins */
+const DWELL = 0.5;
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 const pad = (n: number) => String(n).padStart(2, '0');
@@ -233,6 +235,160 @@ export function PinnedCarousel({ items, toolbar }: { items: Project[]; toolbar: 
                 </motion.div>
               )}
             </AnimatePresence>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Mobile: scroll-driven horizontal carousel — same scroll→x mechanic as PinnedCarousel but
+ *  panels slide left/right instead of swapping content in place. */
+export function MobileScrollCarousel({ items, toolbar }: { items: Project[]; toolbar: ReactNode }) {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const stageWRef = useRef(0);
+  const [stageW, setStageW] = useState(0);
+  const n = items.length;
+  const { scrollY } = useScroll();
+  const progress = useMotionValue(0);
+  const smooth = useSpring(progress, glide);
+  const [active, setActive] = useState(0);
+  const x = useMotionValue(0);
+  const scrubberWidth = useMotionValue('0%');
+  const itemsKey = items.map((p) => p.slug).join();
+
+  useLayoutEffect(() => {
+    if (stageRef.current) {
+      stageWRef.current = stageRef.current.offsetWidth;
+      setStageW(stageRef.current.offsetWidth);
+    }
+  }, []);
+
+  useEffect(() => {
+    const obs = new ResizeObserver(([entry]) => {
+      const w = entry.contentRect.width;
+      stageWRef.current = w;
+      setStageW(w);
+      x.set(-smooth.get() * (n - 1) * w);
+    });
+    if (stageRef.current) obs.observe(stageRef.current);
+    return () => obs.disconnect();
+  }, [n, smooth, x]);
+
+  useMotionValueEvent(smooth, 'change', (v) => {
+    x.set(-v * (n - 1) * stageWRef.current);
+    scrubberWidth.set(`${v * 100}%`);
+    setActive(Math.round(v * (n - 1)));
+  });
+
+  const metrics = useCallback(() => {
+    const el = trackRef.current;
+    if (!el) return null;
+    return {
+      start: el.getBoundingClientRect().top + window.scrollY - STICKY_TOP,
+      step: window.innerHeight * STEP,
+    };
+  }, []);
+
+  const sync = useCallback(() => {
+    const m = metrics();
+    if (!m) return;
+    const offset = DWELL * m.step;
+    const travel = Math.max((n - 1) * m.step, 1);
+    const p = Math.min(Math.max((window.scrollY - m.start - offset) / travel, 0), 1);
+    progress.set(p);
+  }, [metrics, n, progress]);
+
+  useMotionValueEvent(scrollY, 'change', sync);
+
+  useLayoutEffect(() => {
+    const m = metrics();
+    if (m && window.scrollY > m.start + 1) window.scrollTo({ top: m.start, behavior: 'instant' });
+    setActive(0);
+    progress.set(0);
+    smooth.jump(0);
+    x.set(0);
+    scrubberWidth.set('0%');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [itemsKey]);
+
+  const go = (i: number) => {
+    const m = metrics();
+    if (m) window.scrollTo({ top: m.start + (DWELL + i) * m.step, behavior: 'smooth' });
+  };
+
+  return (
+    <div
+      ref={trackRef}
+      className="wmsc"
+      style={{
+        '--wmsc-top': `${STICKY_TOP}px`,
+        '--wmsc-stage': STAGE_HEIGHT,
+        height: `calc(${STAGE_HEIGHT} + ${(n - 1 + 2 * DWELL) * STEP * 100}vh)`,
+      } as CSSProperties}
+    >
+      <div className="wmsc__stage" ref={stageRef}>
+        {toolbar}
+        <div className="wmsc__viewport">
+          <motion.div
+            className="wmsc__track"
+            style={{ x, width: stageW > 0 ? n * stageW : undefined }}
+          >
+            {items.map((project, i) => (
+              <div
+                key={project.slug}
+                className="wmsc__panel"
+                style={{ width: stageW > 0 ? stageW : undefined }}
+              >
+                <Link
+                  to={`/work/${project.slug}`}
+                  className="wmsc__panel-image"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                >
+                  <ProjectVisual project={project} />
+                </Link>
+                <motion.div
+                  className="wmsc__panel-info"
+                  animate={{ opacity: i === active ? 1 : 0.15, x: i === active ? 0 : 20 }}
+                  transition={{ duration: 0.5, ease }}
+                >
+                  <p className="wc__meta mono">{project.sector} · {project.platform}</p>
+                  <h3 className="wmsc__title display">{project.title}</h3>
+                  {project.engagement && <span className="badge-live">{project.engagement}</span>}
+                  <p className="wc__summary">{project.summary}</p>
+                  <ul className="wc__tags" aria-label="Contribution areas">
+                    {project.contribution.slice(0, 3).map((c) => (
+                      <li key={c} className="chip">{c}</li>
+                    ))}
+                  </ul>
+                  <div className="wc__actions">
+                    <Link to={`/work/${project.slug}`} className="btn btn--accent">
+                      View project <span className="btn__icon" data-dir="right" aria-hidden="true"><span>→</span></span>
+                    </Link>
+                    {project.url && (
+                      <a className="wc__live" href={project.url} target="_blank" rel="noreferrer">
+                        Live site <span aria-hidden="true">↗</span>
+                      </a>
+                    )}
+                  </div>
+                </motion.div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        <div className="wmsc__footer">
+          <span className="wmsc__count mono">
+            <b>{pad(active + 1)}</b> / {pad(n)}
+          </span>
+          <div className="wmsc__scrubber" role="progressbar" aria-valuenow={active + 1} aria-valuemax={n}>
+            <motion.div className="wmsc__scrubber-fill" style={{ width: scrubberWidth }} />
+          </div>
+          <div className="wmsc__footer-nav">
+            <button className="wmsc__arrow" aria-label="Previous project" disabled={active === 0} onClick={() => go(active - 1)}>←</button>
+            <button className="wmsc__arrow" aria-label="Next project" disabled={active === n - 1} onClick={() => go(active + 1)}>→</button>
           </div>
         </div>
       </div>
